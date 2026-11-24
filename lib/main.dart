@@ -1,16 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:habitica_habit_tracker/screens/daily_checklist_screen.dart';
+import 'package:habitica_habit_tracker/screens/goal_add_edit_screen.dart';
+import 'package:habitica_habit_tracker/screens/dashboard_screen.dart';
+import 'package:habitica_habit_tracker/screens/home.dart';
+import 'package:habitica_habit_tracker/screens/profile_screen.dart';
+import 'package:habitica_habit_tracker/shell_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const Habitica());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class Habitica extends StatelessWidget {
+  const Habitica({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
+    return MaterialApp(
+      title: 'Habitica Habit Tracker',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+      ),
+      home: const ShellScreen(),
+      routes: {
+        '/home': (context) => const HomeScreen(),
+        '/profile': (context) => const ProfileScreen(),
+        '/daily_checklist': (context) => const DailyChecklistScreen(),
+        '/add_edit': (context) => const GoalAddEditScreen(),
+        '/detail': (context) => const DashboardScreen(),
+      },
     );
   }
 }
