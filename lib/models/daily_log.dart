@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+
+enum Timerange{week, month,year}
+
 class DailyLog {
   final DateTime date;
   final int waterGlasses;
